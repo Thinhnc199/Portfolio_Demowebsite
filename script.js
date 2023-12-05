@@ -54,6 +54,63 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+/*===== Contact =====*/
+// const form = document.getElementById('contactForm');
+
+// form.addEventListener('submit', async (event) => {
+//     event.preventDefault();  // Prevent the default form submission
+
+//     const formData = new FormData(form);
+
+//     try {
+//         const response = await fetch('/sendMail', {
+//             method: 'POST',
+//             body: formData
+//         });
+
+//         // Check if response status is OK
+//         if (!response.ok) {
+//             throw new Error(`Failed to send email. Status: ${response.status}`);
+//         }
+
+//         const data = await response.json();
+
+//         if (data.success) {
+//             console.log('Email sent successfully');
+//             form.reset();
+//         } else {
+//             console.error('Failed to send email');
+//         }
+//     } catch (error) {
+//         console.error('Unexpected error:', error);
+//     }
+// });
+
+/*=== V2 contact ====*/
+
+function sendMail() {
+    (function () {
+        emailjs.init("awonNP5eIycs7In4O");
+
+    })();
+    var params = {
+        name: document.querySelector("#name").value,
+        senderemail: document.querySelector("#email").value,
+        subject: document.querySelector("#subject").value,
+        message: document.querySelector("#message").value,
+    };
+    var serviceID = "service_prgo3qq";
+    var templateID = "template_rxi4tls";
+
+    emailjs.send(serviceID, templateID, params)
+        .then(res => {
+            alert("Email sent successfully");
+        })
+        .catch(error => {
+            console.error("Error sending email:", error);
+
+        });
+}
 
 
 

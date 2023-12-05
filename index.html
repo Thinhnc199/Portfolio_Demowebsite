@@ -8,6 +8,7 @@
     <!-- =====BOX ICONS===== -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/boxicons/2.0.7/css/boxicons.min.css">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <title>Thinhnc_DEV</title>
 </head>
 
@@ -182,96 +183,75 @@
         </section>
 
         <!--===== CONTACT =====-->
-        <!-- <section class="contact section" id="contact">
+        <section class="contact section" id="contact">
             <h2 class="section-title">Contact Me</h2>
 
             <div class="contact__container bd-grid">
-                <form action="/sendMail" method="post" class="contact__form">
-                    <input type="text" placeholder="Name" class="contact__input">
-                    <input type="email" placeholder="Email" class="contact__input">
-                    <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                    <input type="submit" value="Send" class="contact__button button">
+                <form action="" method="" class="contact__form">
+                    <input type="text" id="name" placeholder="Full name" class="contact__input" required>
+                    <input type="email" id="email" placeholder="Email" class="contact__input" required>
+                    <input type="text" id="subject" placeholder="Subject" class="contact__input" required>
+                    <textarea id="message" placeholder="Message" cols="0" rows="10" class="contact__input"
+                        required></textarea>
+                    <!-- <input type="submit" value="Send" class="contact__button button"> -->
+                    <button onclick="sendMail();" type="submit" class="contact__button button">Send</button>
+
+                </form>
                 </form>
             </div>
         </section>
-    </main> -->
+    </main>
 
-        <section class="contact section" id="contact">
+    <!-- <section class="contact section" id="contact">
             <h2 class="section-title">Contact Me</h2>
             <div class="contact__container bd-grid">
                 <form id="contactForm" class="contact__form">
-                    <input type="text" name="name" placeholder="Name" class="contact__input">
+                    <input type="text" name="name" placeholder="Full name" class="contact__input">
                     <input type="email" name="email" placeholder="Email" class="contact__input">
+                    <input type="text" name="subject" placeholder="Subject" class="contact__input">
                     <textarea name="message" placeholder="Message" class="contact__input"></textarea>
                     <input type="submit" value="Send" class="contact__button button">
                 </form>
             </div>
-        </section>
+        </section> -->
 
-        <script>
-            const form = document.getElementById('contactForm');
 
-            form.addEventListener('submit', async (event) => {
-                event.preventDefault();  // Prevent the default form submission
 
-                const formData = new FormData(form);
+    <!--===== Hotline =====-->
 
-                try {
-                    const response = await fetch('/sendMail', {
-                        method: 'POST',
-                        body: formData
-                    });
-
-                    const data = await response.json();
-
-                    if (data.success) {
-                        console.log('Email sent successfully');
-                        form.reset();
-                    } else {
-                        console.error('Failed to send email');
-                    }
-                } catch (error) {
-                    console.error('Unexpected error:', error);
-                }
-            });
-        </script>
-
-        <!--===== Hotline =====-->
-
-        <div class="float-contact">
-            <div class="chat-zalo">
-                <a href="https://zalo.me/0938291478" target="_blank"><img title="Chat Zalo" src="zalo-icon.png"
-                        alt="zalo-icon" width="50" height="50" /></a>
-            </div>
-            <div class="chat-facebook">
-                <a href="https://www.facebook.com/Thinhnc.194/" target="_blank"><img title="Chat Facebook"
-                        src="facebook-icon.png" alt="facebook-icon" width="50" height="50" /></a>
-            </div>
+    <div class="float-contact">
+        <div class="chat-zalo">
+            <a href="https://zalo.me/0938291478" target="_blank"><img title="Chat Zalo" src="zalo-icon.png"
+                    alt="zalo-icon" width="50" height="50" /></a>
         </div>
-        <!--===== Back to Top =====-->
-
-        <div class="backtotop">
-            <i class='bx bxs-chevrons-up'></i>
+        <div class="chat-facebook">
+            <a href="https://www.facebook.com/Thinhnc.194/" target="_blank"><img title="Chat Facebook"
+                    src="facebook-icon.png" alt="facebook-icon" width="50" height="50" /></a>
         </div>
+    </div>
+    <!--===== Back to Top =====-->
 
-        <!--===== FOOTER =====-->
-        <footer class="footer">
-            <p class="footer__title">Thinhnc_DEV</p>
-            <div class="footer__social">
-                <a href="https://www.facebook.com/Thinhnc.194/" class="footer__icon"><i class='bx bxl-facebook'></i></a>
-                <a href="https://www.instagram.com/ncthinh_214/" class="footer__icon"><i
-                        class='bx bxl-instagram'></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
-            </div>
-            <p class="footer__copy">&#169; thinhnc_dev_2023. All rights reserved</p>
-        </footer>
+    <div class="backtotop">
+        <i class='bx bxs-chevrons-up'></i>
+    </div>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+        <p class="footer__title">Thinhnc_DEV</p>
+        <div class="footer__social">
+            <a href="https://www.facebook.com/Thinhnc.194/" class="footer__icon"><i class='bx bxl-facebook'></i></a>
+            <a href="https://www.instagram.com/ncthinh_214/" class="footer__icon"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
+        </div>
+        <p class="footer__copy">&#169; thinhnc_dev_2023. All rights reserved</p>
+    </footer>
 
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
-        <!--===== MAIN JS =====-->
-        <script src="script.js"></script>
+    <!--===== MAIN JS =====-->
+    <script src="script.js"></script>
 </body>
 
 </html>
