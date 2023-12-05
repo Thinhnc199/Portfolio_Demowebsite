@@ -4,7 +4,7 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "dev": "nodemon index.html"
+    "dev": "nodemon ContactMe.js"
   },
   "repository": {
     "type": "git",
